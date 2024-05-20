@@ -10,7 +10,7 @@ vpc_cidr                       = "10.0.0.0/16"
 ## For 3 availability zones
 multi_az                       = true
 availability_zones             = ["us-east-2a", "us-east-2b", "us-east-2c"]
-aws_subnet_ids = ["subnet-0b4a253886bae4bfb", "subnet-022ce6b4fe2f26bc8", "subnet-05cce0ce5c828170d", "subnet-084d2eba669117980", "subnet-08ae1e29782cfb5f4", "subnet-096f39d7203b85557"]
+aws_subnet_ids = ["subnet-03d82c68ffcd98554", "subnet-04e8f19273e9ea1ac", "subnet-0d544a3280f09f018", "subnet-0f34f49ae04c0e0ff", "subnet-0f753eef952136681", "subnet-0d6ffdff5a40a3ba9"]
 replicas                       = 3
 
 ## For 1 availability zone
