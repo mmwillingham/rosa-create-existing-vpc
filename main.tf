@@ -67,13 +67,14 @@ resource "rhcs_cluster_rosa_classic" "rosa_sts_cluster" {
   multi_az           = var.multi_az
   availability_zones = var.availability_zones
   replicas           = var.replicas
-  properties = {
-    rosa_creator_arn = data.aws_caller_identity.current.arn
-  }
+  properties = { rosa_creator_arn = data.aws_caller_identity.current.arn }
   sts                = local.sts_roles  
   destroy_timeout    = 60  
   depends_on         = [time_sleep.wait_for_roles]
   version            = var.openshift_version
+  machine_cidr = var.machine_cidr
+  aws_subnet_ids = var.aws_subnet_ids
+  compute_machine_type = var.compute_machine_type
   admin_credentials  = {
      password        = var.ADMIN_PASSWORD
      username        = var.admin_username 
