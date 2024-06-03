@@ -14,7 +14,7 @@ aws_subnet_ids                 = ["subnet-05b72d9316b55f506", "subnet-0d7e932ac2
 replicas                       = 3
 compute_machine_type           = "m5.xlarge"
 machine_cidr                   = "10.0.0.0/16"
-autoscaling_enabled            = "true"
+autoscaling_enabled            = true
 
 
 ## For 1 availability zone
