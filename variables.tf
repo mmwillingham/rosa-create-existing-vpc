@@ -113,6 +113,11 @@ variable "compute_machine_type" {
   default = "m5.xlarge"
 }
 
+variable "autoscaling_enabled" {
+  description = ""
+  type      = bool
+}
+
 # Terraform backend resources must already exist. Create them here: https://github.com/mmwillingham/github_actions-terraform-aws-backend/blob/main/vars.tf
 
 variable "bucket" {
