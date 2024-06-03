@@ -10,8 +10,12 @@ vpc_cidr                       = "10.0.0.0/16"
 ## For 3 availability zones
 multi_az                       = true
 availability_zones             = ["us-east-2a", "us-east-2b", "us-east-2c"]
-aws_subnet_ids = ["subnet-05b72d9316b55f506", "subnet-0d7e932ac2481ad63", "subnet-0eafd512ecf6ddc8a", "subnet-0c1e91699cfa65208", "subnet-0c815b675abb025e3", "subnet-0933c0eac32623adb"]
+aws_subnet_ids                 = ["subnet-05b72d9316b55f506", "subnet-0d7e932ac2481ad63", "subnet-0eafd512ecf6ddc8a", "subnet-0c1e91699cfa65208", "subnet-0c815b675abb025e3", "subnet-0933c0eac32623adb"]
 replicas                       = 3
+compute_machine_type           = "m5.xlarge"
+machine_cidr                   = "10.0.0.0/16"
+autoscaling_enabled            = "true"
+
 
 ## For 1 availability zone
 # multi_az                       = false
