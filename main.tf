@@ -75,6 +75,7 @@ resource "rhcs_cluster_rosa_classic" "rosa_sts_cluster" {
   machine_cidr = var.machine_cidr
   aws_subnet_ids = var.aws_subnet_ids
   compute_machine_type = var.compute_machine_type
+  autoscaling_enabled  = var.autoscaling_enabled
   admin_credentials  = {
      password        = var.ADMIN_PASSWORD
      username        = var.admin_username 
