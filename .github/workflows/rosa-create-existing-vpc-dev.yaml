@@ -3,6 +3,9 @@ on: workflow_dispatch
 
 env:
   AWS_REGION: "us-east-2"
+  ROLE_TO_ASSUME: "arn:aws:iam::619315238938:role/GitHubAction-AssumeRoleWithAction"
+  SECRET_ID: "arn:aws:secretsmanager:us-east-2:619315238938:secret:rosa_secret_v1-xpk8ng"
+  VAR_FILE: "dev.tfvars"
 
 jobs:
   rosa-create-with-vpc:
@@ -18,16 +21,17 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4.0.2
         with:
-          role-to-assume: arn:aws:iam::261642263042:role/GitHubAction-AssumeRoleWithAction
+          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
           role-session-name: githubrolesession
           aws-region: ${{ env.AWS_REGION }}
+          
           
       - name: Get AWS Secrets
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         # Documentation: https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets_github.html
         with:
           secret-ids: |
-            TF_VAR,arn:aws:secretsmanager:us-east-2:261642263042:secret:rosa_secret_v1-1Xxbef
+            TF_VAR,${{ env.SECRET_ID }}
           parse-json-secrets: true
 #            secretId1 # An environment variable will be created with the same name as the secret, but in uppercase
 #            ENV_VAR_NAME, secretId2 # In this case, you can specify a different name than the secret (alias)
@@ -58,7 +62,7 @@ jobs:
 
       - name: Terraform Apply
         id: apply
-        run: terraform apply -var-file=dev.tfvars --auto-approve # -lock=false
+        run: terraform apply -var-file=${{ env.VAR_FILE }} --auto-approve # -lock=false
       
       # - name: Terraform Destroy
       #   id: destroy
