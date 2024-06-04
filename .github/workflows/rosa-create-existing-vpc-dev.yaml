@@ -60,9 +60,9 @@ jobs:
         id: plan
         run: terraform plan -var-file=dev.tfvars #-lock=false
 
-      - name: Terraform Apply
-        id: apply
-        run: terraform apply -var-file=${{ env.VAR_FILE }} --auto-approve # -lock=false
+      # - name: Terraform Apply
+      #   id: apply
+      #   run: terraform apply -var-file=${{ env.VAR_FILE }} --auto-approve # -lock=false
       
       - name: Terraform Destroy
         id: destroy
