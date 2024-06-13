@@ -1,5 +1,4 @@
 # rosa-create-existing-vpc
-Getting an error because not enough elastic IPs
 
 For full docs, see the repo for creating ROSA with the VPC and make adjustment in the repo.
 https://github.com/mmwillingham/rosa-create/blob/main/README.md
